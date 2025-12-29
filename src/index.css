@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --font-fredoka: "Fredoka", sans-serif;
+  --font-orbitron: "Orbitron", sans-serif;
+  
+}
+
+@layer utilities {
+  .border-common {
+    @apply border border-slate-500/40;
+    box-shadow: 0 0 8px rgba(148, 163, 184, 0.25);
+  }
+
+  .border-rare {
+    @apply border border-blue-400/60;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+  }
+
+  .border-unique {
+    @apply border border-violet-400/70;
+    box-shadow: 0 0 12px rgba(167, 139, 250, 0.35);
+  }
+
+  .border-legendary {
+    @apply border border-amber-400/80;
+    box-shadow: 0 0 14px rgba(251, 191, 36, 0.4);
+  }
+
+}
