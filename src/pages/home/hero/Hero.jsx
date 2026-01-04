@@ -1,12 +1,12 @@
 import React from "react";
-import BeastCard from "./component/BeastCard";
 import { BsStars } from "react-icons/bs";
 import { MdRemoveRedEye } from "react-icons/md";
 import BeastGallery from "./component/BeastGallery";
-import useGetPrice from "./hooks/useGetPrice";
+
 import { formatEther } from "viem";
-import Spinner from "../component/Spinner";
-import ErrorIcon from "../component/ErrorIcon";
+import Spinner from "../../component/Spinner";
+import ErrorIcon from "../../component/ErrorIcon";
+import useGetPrice from "../deposit/hooks/useGetPrice";
 
 function Hero(props) {
   const { tokenAmount, setTokenAmount, price, error, isLoading } =

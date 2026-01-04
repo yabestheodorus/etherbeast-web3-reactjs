@@ -1,5 +1,5 @@
 import React from "react";
-import BeastCard from "./component/BeastCard";
+import BeastCard from "./summon/components/BeastCard";
 
 function MyCollection(props) {
   const beasts = [

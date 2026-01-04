@@ -1,9 +1,9 @@
 import React from "react";
-import Hero from "./Hero";
-import Deposit from "./Deposit";
-import Summon from "./Summon";
 import MyCollection from "./MyCollection";
 import Footer from "./Footer";
+import Summon from "./summon/Summon";
+import Hero from "./hero/Hero";
+import Deposit from "./deposit/Deposit";
 
 function Home(props) {
   return (

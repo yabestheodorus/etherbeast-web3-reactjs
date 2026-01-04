@@ -1,9 +1,15 @@
-import React from "react";
-import { useWriteContract } from "wagmi";
-import EtherBeastTokenAbi from "../../../../contract/abis/EtherBeastToken.abi.json";
+import React, { useEffect } from "react";
+import { useWaitForTransactionReceipt, useWriteContract } from "wagmi";
+import EtherBeastTokenAbi from "../../../../../contract/abis/EtherBeastToken.abi.json";
 import { parseUnits } from "viem";
+
 function useDeposit() {
   const buyTokenMutation = useWriteContract();
+
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+    useWaitForTransactionReceipt({
+      hash: buyTokenMutation.data,
+    });
 
   const buyTokens = (tokenAmount, price) => {
     if (!tokenAmount || !price) {
@@ -30,6 +36,8 @@ function useDeposit() {
     buyTokens,
     buyTokenError: buyTokenMutation.error,
     buyTokenIsLoading: buyTokenMutation.isPending,
+    isConfirming,
+    isConfirmed,
   };
 }
 

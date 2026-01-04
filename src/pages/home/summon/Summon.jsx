@@ -1,9 +1,9 @@
 import React from "react";
-import BeastCard from "./component/BeastCard";
-import MotionCarousel from "../component/MotionCarousel";
-import Rarity from "./component/Rarity";
+import BeastCard from "./components/BeastCard";
+import MotionCarousel from "../../component/MotionCarousel";
+import Rarity from "./components/Rarity";
 
-import SummonButton from "../component/SummonButton";
+import BeastMintedDialog from "./components/BeastMintedDialog";
 
 function Summon(props) {
   const beasts = [
@@ -100,12 +100,9 @@ function Summon(props) {
         </div>
       </div>
 
-      <div className="mt-12 flex flex-col items-center">
-        <SummonButton />
-        <p className="mt-4 text-lg text-slate-500">
-          Spend 1 ETB to perform a summon
-        </p>
-      </div>
+      <div className="mt-12 flex flex-col items-center"></div>
+
+      <BeastMintedDialog />
     </div>
   );
 }

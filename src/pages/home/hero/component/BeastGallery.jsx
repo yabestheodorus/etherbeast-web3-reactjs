@@ -1,5 +1,5 @@
 import React from "react";
-import FloatingAnimation from "../../component/FloatingAnimation";
+import FloatingAnimation from "../../../component/FloatingAnimation";
 
 function BeastGallery({ imageName, beastName, index }) {
   return (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-function SummonButton(props) {
+function SummonButton({ action, buttonText, buttonDisabled }) {
   const HOLD_DURATION = 1500;
   const HOLD_SECONDS = HOLD_DURATION / 1000;
   const [holding, setHolding] = useState(false);
@@ -20,7 +20,7 @@ function SummonButton(props) {
 
       if (pct === 1) {
         setHolding(false);
-        triggerSummon(); // your summon logic
+        // action();
       }
     }, 16);
 
@@ -29,7 +29,7 @@ function SummonButton(props) {
 
   return (
     <div>
-      <div className="relative w-76 h-26">
+      <div className="relative w-76 h-20">
         <motion.div
           className="absolute inset-0 rounded-full border-2 border-emerald-400"
           animate={{ scaleX: holding ? 1 : 0 }}
@@ -39,7 +39,7 @@ function SummonButton(props) {
             ease: holding ? "easeOut" : "easeIn",
           }}
           onAnimationComplete={() => {
-            if (holding) triggerSummon();
+            if (holding) action();
           }}
           style={{
             boxShadow: holding
@@ -55,14 +55,15 @@ function SummonButton(props) {
         />
 
         <motion.button
+          disabled={buttonDisabled}
           onPointerDown={() => setHolding(true)}
           onPointerUp={() => setHolding(false)}
           onPointerLeave={() => setHolding(false)}
           whileTap={{ scale: 0.97 }}
           className=" relative z-10 w-full h-full rounded-full 
-          bg-black text-emerald-300 text-2xl font-semibold tracking-widest select-none border border-slate-800 hover:cursor-pointer "
+          border border-slate-600/40 bg-slate-800  text-slate-300 text-2xl font-semibold tracking-widest select-none  hover:cursor-pointer "
         >
-          {holding ? "CHANNELING..." : "HOLD TO SUMMON"}
+          {holding ? "CHANNELING..." : buttonText}
         </motion.button>
       </div>
     </div>

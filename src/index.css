@@ -1,9 +1,29 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 @theme {
   --font-fredoka: "Fredoka", sans-serif;
   --font-orbitron: "Orbitron", sans-serif;
   
+}
+
+@keyframes idle-breath {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+
+.animate-idle-breath {
+  animation: idle-breath 3s ease-in-out infinite;
 }
 
 @layer utilities {
@@ -27,4 +47,25 @@
     box-shadow: 0 0 14px rgba(251, 191, 36, 0.4);
   }
 
+}
+
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 22s linear infinite;
 }

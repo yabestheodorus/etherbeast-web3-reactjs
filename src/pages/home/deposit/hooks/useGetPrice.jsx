@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useReadContract } from "wagmi";
-import EtherBeastTokenAbi from "../../../../contract/abis/EtherBeastToken.abi.json";
+import EtherBeastTokenAbi from "../../../../../contract/abis/EtherBeastToken.abi.json";
 import { parseUnits } from "viem";
 
 function useGetPrice(props) {

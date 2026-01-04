@@ -1,15 +1,21 @@
 import React from "react";
 import { MdGeneratingTokens } from "react-icons/md";
-import useDeposit from "./hooks/useDeposit";
 import { formatEther } from "viem";
-import useGetBalance from "./hooks/useGetBalance";
-import Spinner from "../component/Spinner";
-import ErrorIcon from "../component/ErrorIcon";
+import ErrorIcon from "../../component/ErrorIcon";
+import Spinner from "../../component/Spinner";
 import useGetPrice from "./hooks/useGetPrice";
+import useGetBalance from "./hooks/useGetBalance";
+import useDeposit from "./hooks/useDeposit";
 function Deposit(props) {
   const { tokenAmount, setTokenAmount, price, error, isLoading } =
     useGetPrice();
-  const { buyTokens, buyTokenError, buyTokenIsLoading } = useDeposit();
+  const {
+    buyTokens,
+    buyTokenError,
+    buyTokenIsLoading,
+    isConfirming,
+    isConfirmed,
+  } = useDeposit();
   const {
     balance,
     error: errorBalance,
@@ -19,8 +25,8 @@ function Deposit(props) {
     <section className="relative flex items-center  py-36 z-30 mt-12">
       <div className="w-1/2  px-6">
         <div className="flex flex-col w-fit mx-auto rounded-2xl border border-white/15 bg-white/15 backdrop-blur-xl p-6">
-          <div className="flex justify-between items-center">
-            <label className="block text-lg text-white/60 mb-2">
+          <div className="flex justify-between items-center mb-2">
+            <label className="block text-lg text-white/60 ">
               Amount to Deposit
             </label>
             <span className="text-white flex items-center gap-x-2">
@@ -52,6 +58,11 @@ function Deposit(props) {
               <Spinner />
             ) : buyTokenError ? (
               <ErrorIcon />
+            ) : isConfirming ? (
+              <>
+                <Spinner />
+                Confirming...
+              </>
             ) : (
               <>
                 <MdGeneratingTokens size={20} className="text-white" />
@@ -72,7 +83,7 @@ function Deposit(props) {
             balance && formatEther(balance)
           )}
           {"  "}
-          ETB
+          <img src="/coin2.png" className="w-6 h-6 object-contain" />
         </label>
         <h2 className="text-6xl font-bold text-white">
           Aquire EtherBeast Token

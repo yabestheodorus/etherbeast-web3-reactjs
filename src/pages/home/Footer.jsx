@@ -6,7 +6,7 @@ function Footer(props) {
       <div className="mx-auto  max-w-6xl px-6 py-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between border-t border-slate-800  backdrop-blur shadow-[0_-10px_40px_rgba(16,185,129,0.05)]">
         {/* Left */}
         <div className="flex flex-col gap-1">
-          <span className="text-sm text-slate-500">
+          <span className="text-lg text-slate-500">
             A project by{" "}
             <a
               href="https://yabex.dev"
@@ -14,10 +14,10 @@ function Footer(props) {
               rel="noopener noreferrer"
               className="font-medium text-emerald-400 hover:text-emerald-300 transition"
             >
-              Yabex
+              yabes.dev
             </a>
           </span>
-          <span className="text-xs text-slate-600">
+          <span className="text-md text-slate-600">
             © 2025 EtherBeast. All Beasts are summoned on-chain.
           </span>
         </div>
