@@ -16,7 +16,6 @@ yarn-error.log*
 
 
 # abis
-/contract
 # Environment variables
 .env
 .env.*
