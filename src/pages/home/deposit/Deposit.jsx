@@ -6,6 +6,7 @@ import Spinner from "../../component/Spinner";
 import useGetPrice from "./hooks/useGetPrice";
 import useGetBalance from "./hooks/useGetBalance";
 import useDeposit from "./hooks/useDeposit";
+import { roundUpTo8Decimals } from "../../../Utils";
 function Deposit(props) {
   const { tokenAmount, setTokenAmount, price, error, isLoading } =
     useGetPrice();
@@ -35,7 +36,7 @@ function Deposit(props) {
             <span className="text-white flex items-center gap-x-2">
               {isLoading && <Spinner />}
               {error && <ErrorIcon />}
-              {price && formatEther(price)} ETH
+              {price && roundUpTo8Decimals(price)} ETH
             </span>
           </div>
 

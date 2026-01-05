@@ -24,11 +24,11 @@ function BeastMintedDialog(props) {
   const buttonText = isApprovePending
     ? "APPROVING..."
     : isApproveConfirming
-    ? "CONFIRMING APPROVE..."
+    ? "CONFIRMING APPROVAL..."
     : isGatchaConfirming
-    ? "CONFIRMING GATCHA..."
+    ? "CONFIRMING GATCHA REQUEST..."
     : isGatchaConfirmed && dialogState !== "RESULT"
-    ? "Getting NFT metadata..."
+    ? "GATCHA IS PROCESSING..."
     : dialogState === "RESULT"
     ? "Congratulations! You got a new beast!"
     : "HOLD TO SUMMON";

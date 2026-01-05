@@ -26,6 +26,7 @@ function useGetPrice(props) {
     },
   });
 
+  if (error) console.error(error);
   return { tokenAmount, setTokenAmount, price, error, isLoading };
 }
 

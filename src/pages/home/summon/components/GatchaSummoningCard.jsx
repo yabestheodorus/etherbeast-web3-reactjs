@@ -33,6 +33,11 @@ function GatchaSummoningCard(props) {
       <p className="mt-6 text-slate-300 text-sm tracking-widest uppercase">
         Summoning
       </p>
+
+      <p className="mt-2 text-slate-400/80 text-sm tracking-normal text-center">
+        This may take a few minutes <br /> (You can refresh the page
+        periodically)
+      </p>
     </div>
   );
 }

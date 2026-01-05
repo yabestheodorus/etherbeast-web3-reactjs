@@ -35,7 +35,8 @@ export const localhost = defineChain({
 });
 
 // 3. Set the networks
-const networks = [mainnet, sepolia, localhost];
+// const networks = [mainnet, sepolia, localhost];
+const networks = [sepolia];
 
 // 4. Create Wagmi Adapter
 const wagmiAdapter = new WagmiAdapter({

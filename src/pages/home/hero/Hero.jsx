@@ -7,6 +7,7 @@ import { formatEther } from "viem";
 import Spinner from "../../component/Spinner";
 import ErrorIcon from "../../component/ErrorIcon";
 import useGetPrice from "../deposit/hooks/useGetPrice";
+import { roundUpTo8Decimals } from "../../../Utils";
 
 function Hero(props) {
   const { tokenAmount, setTokenAmount, price, error, isLoading } =
@@ -96,7 +97,7 @@ function Hero(props) {
           <span className="text-white text-4xl font-extrabold font-orbitron">
             {isLoading && <Spinner />}
             {error && <ErrorIcon />}
-            {price && formatEther(price)}
+            {price && roundUpTo8Decimals(price)}
           </span>
           <span className="text-white/70 text-md font-medium ">
             Token Price (ETH)
