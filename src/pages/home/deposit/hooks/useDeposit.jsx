@@ -3,13 +3,19 @@ import { useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import EtherBeastTokenAbi from "../../../../../contract/abis/EtherBeastToken.abi.json";
 import { parseUnits } from "viem";
 
-function useDeposit() {
+function useDeposit(refetchBalance) {
   const buyTokenMutation = useWriteContract();
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
       hash: buyTokenMutation.data,
     });
+
+  useEffect(() => {
+    if (isConfirmed) {
+      refetchBalance();
+    }
+  }, [isConfirmed]);
 
   const buyTokens = (tokenAmount, price) => {
     if (!tokenAmount || !price) {

@@ -9,18 +9,21 @@ import useDeposit from "./hooks/useDeposit";
 function Deposit(props) {
   const { tokenAmount, setTokenAmount, price, error, isLoading } =
     useGetPrice();
+
+  const {
+    balance,
+    error: errorBalance,
+    isLoading: isLoadingBalance,
+    refetchBalance,
+  } = useGetBalance();
+
   const {
     buyTokens,
     buyTokenError,
     buyTokenIsLoading,
     isConfirming,
     isConfirmed,
-  } = useDeposit();
-  const {
-    balance,
-    error: errorBalance,
-    isLoading: isLoadingBalance,
-  } = useGetBalance();
+  } = useDeposit(refetchBalance);
   return (
     <section className="relative flex items-center  py-36 z-30 mt-12">
       <div className="w-1/2  px-6">
